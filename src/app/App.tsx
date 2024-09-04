@@ -1,4 +1,4 @@
-import Home from "../pages/home/Home";
+import Home from "../modules/common/home/Home";
 import "./App.scss";
 
 function App() {

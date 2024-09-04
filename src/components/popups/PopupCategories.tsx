@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { Category } from "../../store/useCategoriesStore";
+import { Category } from "../../modules/common/shared/categories/store/useCategoriesStore";
 import Button from "../../ui/Button";
 import { generateUniqueId } from "../../utils/generateUniqueId";
 import ImageInput from "../ImageInput";

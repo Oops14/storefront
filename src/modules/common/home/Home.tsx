@@ -1,13 +1,13 @@
 import Grid from "@mui/material/Grid2";
 import { useState } from "react";
-import AddInfoButton from "../../components/AddInfoButton";
-import Header from "../../components/layout/header/Header";
-import PopupCategory from "../../components/popups/PopupCategories";
-import CategoryGridItem from "../../modules/categories/CategoryGridItem";
-import Post from "../../modules/posts/Post";
-import ProductGridItem from "../../modules/products/ProductGridItem";
-import useCategoriesStore from "../../store/useCategoriesStore";
-import { generateUniqueId } from "../../utils/generateUniqueId";
+import AddInfoButton from "../../../components/AddInfoButton";
+import PopupCategory from "../../../components/popups/PopupCategories";
+import { generateUniqueId } from "../../../utils/generateUniqueId";
+import ProductGridItem from "../../products/ProductGridItem";
+import CategoryGridItem from "../shared/categories/CategoryGridItem";
+import useCategoriesStore from "../shared/categories/store/useCategoriesStore";
+import Header from "../shared/header/Header";
+import Post from "../shared/posts/Post";
 import style from "./Home.module.scss";
 
 const products = [

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import Button from "../../ui/Button";
+import Button from "../../../../ui/Button";
 import style from "./Post.module.scss";
 
 interface Post {
