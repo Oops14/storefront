@@ -1,0 +1,40 @@
+.post_top {
+  overflow: hidden;
+  a {
+    display: block;
+
+    img {
+      transition: all 0.4s ease-in;
+    }
+
+    &:hover {
+      img {
+        scale: 1.1;
+      }
+    }
+  }
+}
+
+.post_title {
+  padding-top: 17px;
+  padding-bottom: 17px;
+
+  a {
+    font-weight: 600;
+    color: #60646c;
+  }
+}
+
+.post_desk {
+  margin-bottom: 17px;
+}
+
+.btn_alternative {
+  background-color: transparent !important;
+  color: blue !important;
+  padding-left: 0 !important;
+
+  &:hover {
+    transform: translateX(10px);
+  }
+}
