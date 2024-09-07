@@ -10,7 +10,7 @@
   padding: 15px;
 
   &::before {
-    content: "";
+    content: '';
     background-color: #333;
     opacity: 0.5;
   }
@@ -33,7 +33,7 @@
 }
 
 .popup_bg {
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   height: 0;

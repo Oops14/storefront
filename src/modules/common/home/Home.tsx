@@ -4,6 +4,7 @@ import AddInfoButton from '../../../components/AddInfoButton'
 import ImageInput from '../../../components/ImageInput'
 import Button from '../../../ui/Button'
 import { generateUniqueId } from '../../../utils/generateUniqueId'
+import DashboardTopPanel from '../../adminPanel/AdminTopPanel'
 import ProductGridItem from '../../products/ProductGridItem'
 import CategoryGridItem from '../shared/categories/CategoryGridItem'
 import useCategoriesStore from '../shared/categories/store/useCategoriesStore'
@@ -66,6 +67,8 @@ const Home = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const [categoryTitle, setCategoryTitle] = useState('')
+  const [productTitle, setProductTitle] = useState('')
+  const [productPrice, setProductPrice] = useState('')
 
   const categories = useCategoriesStore((state) => state.categories)
   const addNewCategory = useCategoriesStore((state) => state.addCategory)
@@ -100,25 +103,41 @@ const Home = () => {
     }
   }
 
+  const handleProductData = () => {
+    // const categoryItem = {
+    //   id: generateUniqueId(),
+    //   title: categoryTitle,
+    //   img: selectedImage || '',
+    //   quantity: 0,
+    // }
+    // if (categoryTitle.length && selectedImage) {
+    //   addNewCategory(categoryItem)
+    //   setIsOpen(false)
+    // }
+  }
+
   console.log(categories)
 
   return (
     <>
+      <DashboardTopPanel>Dashboard</DashboardTopPanel>
       <Header />
 
       {isOpen && (
         <Popup setIsOpen={setIsOpen}>
-          {/* Custom content passed as children */}
-          <h5>Define a New Category</h5>
-          <input type="text" onChange={(e) => setCategoryTitle(e.currentTarget.value)} />
+          {/* Custom content for adding a product */}
+          <h5>Define a product</h5>
+          <input type="text" onChange={(e) => setProductTitle(e.currentTarget.value)} placeholder="Product Title" />
 
           <h5>Upload an Image</h5>
           <ImageInput classNameDivInput="some-class" onImageChange={handleImageChange} />
 
+          <input type="number" onChange={(e) => setProductPrice(e.currentTarget.value)} placeholder="Price" />
+
           {selectedImage && <p>Image file selected</p>}
 
-          <Button className="btn" onClick={handleData}>
-            Add category
+          <Button className="btn" onClick={handleProductData}>
+            Add product
           </Button>
         </Popup>
       )}
@@ -148,6 +167,9 @@ const Home = () => {
         <div className="container">
           <div className={style.section_title}>
             <h3>Products</h3>
+            <span>
+              <AddInfoButton title="Add product" onClick={handlePopup} />
+            </span>
           </div>
 
           <Grid container spacing={5}>
