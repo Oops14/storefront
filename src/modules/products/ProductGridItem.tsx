@@ -1,11 +1,11 @@
-import { FC } from "react";
-import Button from "../../ui/Button";
-import style from "./ProductGridItems.module.scss";
+import { FC } from 'react'
+import Button from '../../ui/Button'
+import style from './ProductGridItems.module.scss'
 
 interface ProductGridItem {
-  title: string;
-  img: string;
-  price: string;
+  title: string
+  img: string
+  price: string
 }
 
 const ProductGridItem: FC<ProductGridItem> = ({ title, img, price }) => {
@@ -26,7 +26,7 @@ const ProductGridItem: FC<ProductGridItem> = ({ title, img, price }) => {
         <Button className={`btn ${style.add_to_cart_btn}`}>Add to cart</Button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProductGridItem;
+export default ProductGridItem

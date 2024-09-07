@@ -1,11 +1,11 @@
-import { FC } from "react";
-import Button from "../../../../ui/Button";
-import style from "./Post.module.scss";
+import { FC } from 'react'
+import Button from '../../../../ui/Button'
+import style from './Post.module.scss'
 
 interface Post {
-  title: string;
-  description: string;
-  img: string;
+  title: string
+  description: string
+  img: string
 }
 
 const Post: FC<Post> = ({ title, description, img }) => {
@@ -21,12 +21,10 @@ const Post: FC<Post> = ({ title, description, img }) => {
           <a href="#">{title}</a>
         </div>
         <div className={style.post_desk}>{description}</div>
-        <Button className={`btn ${style.btn_alternative}`}>
-          View this post →
-        </Button>
+        <Button className={`btn ${style.btn_alternative}`}>View this post →</Button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Post;
+export default Post
