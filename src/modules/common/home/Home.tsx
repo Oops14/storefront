@@ -146,9 +146,6 @@ const Home = () => {
         <div className="container">
           <div className={style.section_title}>
             <h3>Product Categories</h3>
-            <span>
-              <AddInfoButton title="Add category" onClick={handlePopup} />
-            </span>
           </div>
 
           <Grid container spacing={5}>
