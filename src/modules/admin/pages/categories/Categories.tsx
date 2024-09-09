@@ -1,5 +1,6 @@
 import { Button } from '@mui/material'
-import { useId, useState } from 'react'
+import { useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 import AddInfoButton from '../../../../components/AddInfoButton'
 import ImageInput from '../../../../components/ImageInput'
 import useCategoriesStore from '../../../common/shared/categories/store/useCategoriesStore'
@@ -7,7 +8,6 @@ import Popup from '../../../common/shared/popup/Popup'
 import style from './Categories.module.scss'
 
 const Dashboard = () => {
-  const itemId = useId()
   const [isOpen, setIsOpen] = useState(false)
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const [categoryTitle, setCategoryTitle] = useState('')
@@ -31,11 +31,9 @@ const Dashboard = () => {
     setIsOpen(true)
   }
 
-  console.log(itemId)
-
   const handleData = () => {
     const categoryItem = {
-      id: itemId,
+      id: uuidv4(),
       title: categoryTitle,
       img: selectedImage || '',
       quantity: 0,
@@ -73,7 +71,7 @@ const Dashboard = () => {
 
         <ul>
           {categories.map((i) => {
-            return <li key={itemId}>{i.title}</li>
+            return <li key={i.id}>{i.title}</li>
           })}
         </ul>
       </div>

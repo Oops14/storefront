@@ -1,8 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom'
-import AdminPanel from '../modules/adminPanel/AdminPanel'
-import Categories from '../modules/adminPanel/pages/categories/Categories'
-import Posts from '../modules/adminPanel/pages/posts/Posts'
-import Products from '../modules/adminPanel/pages/products/Products'
+import AdminPanel from '../modules/admin/AdminPanel'
+import Categories from '../modules/admin/pages/categories/Categories'
+import Posts from '../modules/admin/pages/posts/Posts'
+import Products from '../modules/admin/pages/products/Products'
 import Home from '../modules/common/home/Home'
 
 const router = createBrowserRouter([

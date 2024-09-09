@@ -1,10 +1,11 @@
 import Grid from '@mui/material/Grid2'
-import { useState } from 'react'
+import { useId, useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 import AddInfoButton from '../../../components/AddInfoButton'
 import ImageInput from '../../../components/ImageInput'
 import Button from '../../../ui/Button'
 import { generateUniqueId } from '../../../utils/generateUniqueId'
-import DashboardTopPanel from '../../adminPanel/AdminTopPanel'
+import DashboardTopPanel from '../../admin/AdminTopPanel'
 import ProductGridItem from '../../products/ProductGridItem'
 import CategoryGridItem from '../shared/categories/CategoryGridItem'
 import useCategoriesStore from '../shared/categories/store/useCategoriesStore'
@@ -64,11 +65,13 @@ const posts = [
 ]
 
 const Home = () => {
+  const itemId = useId()
+
   const [isOpen, setIsOpen] = useState(false)
-  const [selectedImage, setSelectedImage] = useState<string | null>(null)
-  const [categoryTitle, setCategoryTitle] = useState('')
-  const [productTitle, setProductTitle] = useState('')
-  const [productPrice, setProductPrice] = useState('')
+  const [selectedImage, setSelectedImage] = useState<string>()
+  const [categoryTitle, setCategoryTitle] = useState<string>()
+  const [productTitle, setProductTitle] = useState<string>()
+  const [productPrice, setProductPrice] = useState<string>()
 
   const categories = useCategoriesStore((state) => state.categories)
   const addNewCategory = useCategoriesStore((state) => state.addCategory)
@@ -84,20 +87,20 @@ const Home = () => {
         setSelectedImage(reader.result as string)
       }
       reader.readAsDataURL(imageFile)
-    } else {
-      setSelectedImage(null)
     }
+
+    setSelectedImage('')
   }
 
   const handleData = () => {
     const categoryItem = {
-      id: generateUniqueId(),
+      id: uuidv4(),
       title: categoryTitle,
       img: selectedImage || '',
       quantity: 0,
     }
 
-    if (categoryTitle.length && selectedImage) {
+    if (categoryTitle && categoryTitle.length && selectedImage) {
       addNewCategory(categoryItem)
       setIsOpen(false)
     }
@@ -115,8 +118,6 @@ const Home = () => {
     //   setIsOpen(false)
     // }
   }
-
-  console.log(categories)
 
   return (
     <>

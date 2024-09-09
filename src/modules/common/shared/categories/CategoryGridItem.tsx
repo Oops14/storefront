@@ -8,7 +8,8 @@ interface CategoryGridItem {
 }
 
 const CategoryGridItem: FC<CategoryGridItem> = ({ title, img, quantity }) => {
-  return (
+  // @ts-ignore
+    return (
     <div className={style.category_item}>
       <div className={style.category_image}>
         <img src={img} alt="#" />
