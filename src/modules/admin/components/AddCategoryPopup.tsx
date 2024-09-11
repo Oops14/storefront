@@ -1,9 +1,9 @@
-import { Button } from '@mui/material'
 import { FC } from 'react'
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
 import ImageInput from '../../../components/inputs/ImageInput'
+import Button from '../../../ui/button/Button'
 import useCategoriesStore from '../../common/shared/categories/store/useCategoriesStore'
 import Popup from '../../common/shared/popup/Popup'
 

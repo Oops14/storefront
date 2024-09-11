@@ -1,14 +1,13 @@
-import { FC, ReactNode } from 'react'
+import { ButtonHTMLAttributes, FC, ReactNode } from 'react'
 
-interface Button {
+interface Button extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode
   onClick?: () => void
-  className?: string
 }
 
-const Button: FC<Button> = ({ children, onClick, className }) => {
+const Button: FC<Button> = ({ children, onClick, ...props }) => {
   return (
-    <button className={className} onClick={onClick}>
+    <button className={props.className} onClick={onClick}>
       {children}
     </button>
   )
