@@ -1,4 +1,5 @@
 import { FC, ReactNode } from 'react'
+
 import style from './Popup.module.scss'
 
 interface PopupProps {

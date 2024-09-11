@@ -1,4 +1,5 @@
 import { FC } from 'react'
+
 import style from './CategoryGridItem.module.scss'
 
 interface CategoryGridItem {
@@ -9,7 +10,7 @@ interface CategoryGridItem {
 
 const CategoryGridItem: FC<CategoryGridItem> = ({ title, img, quantity }) => {
   // @ts-ignore
-    return (
+  return (
     <div className={style.category_item}>
       <div className={style.category_image}>
         <img src={img} alt="#" />

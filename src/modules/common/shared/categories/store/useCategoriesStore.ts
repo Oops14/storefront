@@ -4,7 +4,7 @@ import { create } from 'zustand'
 export interface Category {
   id: string
   title: string
-  img: string | undefined
+  img: string
   quantity: number
 }
 

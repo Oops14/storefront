@@ -1,7 +1,7 @@
-import React, { FC } from 'react'
+import { FC, ReactNode } from 'react'
 
 interface Button {
-  children: React.ReactNode
+  children: ReactNode
   onClick?: () => void
   className?: string
 }

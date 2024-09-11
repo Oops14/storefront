@@ -1,5 +1,6 @@
 import { FC } from 'react'
-import Button from '../../ui/Button'
+
+import Button from '../../ui/button/Button'
 import style from './ProductGridItems.module.scss'
 
 interface ProductGridItem {

@@ -6,7 +6,7 @@ interface ImageInputProps {
 }
 
 const ImageInput: FC<ImageInputProps> = ({ onImageChange, classNameDivInput }) => {
-  const [preview, setPreview] = useState<string | null>(null)
+  const [preview, setPreview] = useState('')
 
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files ? event.target.files[0] : null
@@ -15,12 +15,14 @@ const ImageInput: FC<ImageInputProps> = ({ onImageChange, classNameDivInput }) =
       const reader = new FileReader()
 
       reader.onloadend = () => {
-        setPreview(reader.result as string)
+        if (typeof reader.result === 'string') {
+          setPreview(reader.result)
+        }
       }
 
       reader.readAsDataURL(file)
     } else {
-      setPreview(null)
+      setPreview('')
     }
 
     onImageChange(file)

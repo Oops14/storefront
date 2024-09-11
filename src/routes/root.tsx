@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
-import AdminPanel from '../modules/admin/AdminPanel'
+
+import AdminPanel from '../modules/admin/Admin'
 import Categories from '../modules/admin/pages/categories/Categories'
 import Posts from '../modules/admin/pages/posts/Posts'
 import Products from '../modules/admin/pages/products/Products'

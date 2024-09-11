@@ -1,4 +1,4 @@
-import style from "./Header.module.scss";
+import style from './Header.module.scss'
 
 const Header = () => {
   return (
@@ -36,7 +36,7 @@ const Header = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
