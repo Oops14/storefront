@@ -1,11 +1,10 @@
-import { ChangeEvent, FC, useState } from 'react'
+import { ChangeEvent, FC, InputHTMLAttributes, useState } from 'react'
 
-interface ImageInputProps {
+interface ImageInputProps extends InputHTMLAttributes<HTMLInputElement> {
   onImageChange: (imageFile: File | null) => void
-  classNameDivInput?: string
 }
 
-const ImageInput: FC<ImageInputProps> = ({ onImageChange, classNameDivInput }) => {
+const ImageInput: FC<ImageInputProps> = ({ onImageChange, ...props }) => {
   const [preview, setPreview] = useState('')
 
   const handleImageChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -29,7 +28,7 @@ const ImageInput: FC<ImageInputProps> = ({ onImageChange, classNameDivInput }) =
   }
 
   return (
-    <div className={classNameDivInput}>
+    <div className={props.className}>
       <input type="file" accept="image/*" onChange={handleImageChange} />
       {preview && (
         <img src={preview} alt="Image Preview" style={{ marginTop: '10px', maxWidth: '100%', height: 'auto' }} />

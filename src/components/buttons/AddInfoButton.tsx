@@ -1,14 +1,13 @@
-import { FC } from 'react'
+import { ButtonHTMLAttributes, FC } from 'react'
 
-import Button from '../../ui/button/Button'
+import Button from '@ui/button/Button'
 
-interface AddInfoButtonProps {
+interface AddInfoButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   title: string
-  onClick: () => void
 }
 
-const AddInfoButton: FC<AddInfoButtonProps> = ({ title, onClick }) => {
-  return <Button onClick={onClick}>{title}</Button>
+const AddInfoButton: FC<AddInfoButtonProps> = ({ title, ...props }) => {
+  return <Button onClick={props.onClick}>{title}</Button>
 }
 
 export default AddInfoButton

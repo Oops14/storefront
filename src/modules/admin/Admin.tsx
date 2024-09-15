@@ -1,17 +1,21 @@
-import Grid from '@mui/material/Grid2'
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 
-import style from './Admin.module.scss'
+import Grid from '@mui/material/Grid2'
+
 import AdminSidebarMenu from './components/AdminSidebarMenu'
 import DashboardTopPanel from './components/AdminTopPanel'
 
+import s from './Admin.module.scss'
+
 const Dashboard = () => (
   <>
-    <DashboardTopPanel>View Site</DashboardTopPanel>
-    <div className={style.main_dashbaord}>
+    <DashboardTopPanel>
+      <Link to="/">View Site</Link>
+    </DashboardTopPanel>
+    <div className={s.main_dashbaord}>
       <Grid container spacing={2}>
         <Grid size={{ lg: 2, xs: 6, md: 4 }}>
-          <div className={style.admin_sidebar}>
+          <div className={s.admin_sidebar}>
             <AdminSidebarMenu />
           </div>
         </Grid>

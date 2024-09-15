@@ -11,6 +11,8 @@ export interface Category {
 interface CategoriesState {
   categories: Category[]
   addCategory: (newCategory: Category) => void
+  removeCategory: (categoryId: string) => void
+  editCategory: (title: string, categoryId: string) => void
 }
 
 const useCategoriesStore = create<CategoriesState>((set) => ({
@@ -37,6 +39,14 @@ const useCategoriesStore = create<CategoriesState>((set) => ({
   addCategory: (newCategory) =>
     set((state) => ({
       categories: [...state.categories, newCategory],
+    })),
+  removeCategory: (categoryId: string) =>
+    set((state) => ({
+      categories: state.categories.filter((i) => i.id !== categoryId),
+    })),
+  editCategory: (title: string, categoryId: string) =>
+    set((state) => ({
+      categories: state.categories.map((i) => (i.id === categoryId ? { ...i, title: title } : i)),
     })),
 }))
 

@@ -1,13 +1,18 @@
-import Grid from '@mui/material/Grid2'
-import { v4 as uuidv4 } from 'uuid'
+import { Link } from 'react-router-dom'
 
-import DashboardTopPanel from '../../admin/components/AdminTopPanel'
-import ProductGridItem from '../../products/ProductGridItem'
-import CategoryGridItem from '../shared/categories/CategoryGridItem'
-import useCategoriesStore from '../shared/categories/store/useCategoriesStore'
-import Header from '../shared/header/Header'
-import Post from '../shared/posts/Post'
-import style from './Home.module.scss'
+import { v4 as uuidv4 } from 'uuid'
+import Grid from '@mui/material/Grid2'
+
+import DashboardTopPanel from '@modules/admin/components/AdminTopPanel'
+
+import ProductGridItem from '@modules/products/ProductGridItem'
+
+import CategoryGridItem from '@shared/categories/CategoryGridItem'
+import useCategoriesStore from '@shared/categories/store/useCategoriesStore'
+import Header from '@shared/header/Header'
+import Post from '@shared/posts/Post'
+
+import s from './Home.module.scss'
 
 const products = [
   {
@@ -68,12 +73,14 @@ const Home = () => {
 
   return (
     <>
-      <DashboardTopPanel>Dashboard</DashboardTopPanel>
+      <DashboardTopPanel>
+        <Link to="/admin/categories">Dashboard</Link>
+      </DashboardTopPanel>
       <Header />
 
-      <section className={style.categories}>
-        <div className="container">
-          <div className={style.section_title}>
+      <section className={s.categories}>
+        <div className={s.container}>
+          <div className={s.section_title}>
             <h3>Product Categories</h3>
           </div>
 
@@ -89,9 +96,9 @@ const Home = () => {
         </div>
       </section>
 
-      <section className={style.products_section}>
-        <div className="container">
-          <div className={style.section_title}>
+      <section className={s.products_section}>
+        <div className={s.container}>
+          <div className={s.section_title}>
             <h3>Products</h3>
           </div>
 
@@ -107,9 +114,9 @@ const Home = () => {
         </div>
       </section>
 
-      <section className={style.posts_section}>
-        <div className="container">
-          <div className={style.section_title}>
+      <section className={s.posts_section}>
+        <div className={s.container}>
+          <div className={s.section_title}>
             <h3>Posts</h3>
           </div>
 

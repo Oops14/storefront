@@ -2,25 +2,33 @@ import { useState } from 'react'
 
 import AddInfoButton from '../../../../components/buttons/AddInfoButton'
 import AddCategoryPopup from '../../components/AddCategoryPopup'
-import ListCategories from '../../components/ListCategories'
-import style from './Categories.module.scss'
+import ListCategories from '../../components/listCategories/ListCategories'
+import Typography from '@components/typography/Typography'
 
-const Dashboard = () => {
+import useCategoriesStore from '../../../common/shared/categories/store/useCategoriesStore'
+
+import s from './Categories.module.scss'
+
+const Categories = () => {
   const [isOpen, setIsOpen] = useState(false)
+
+  const categories = useCategoriesStore((state) => state.categories)
+  const { removeCategory, editCategory } = useCategoriesStore()
 
   return (
     <>
       {isOpen && <AddCategoryPopup setIsOpen={setIsOpen} />}
-      <div className={style.admin_panel_categories}>
-        <div className={style.page_title}>
-          <h2>Create a category</h2>
-          <AddInfoButton title="Add product" onClick={() => setIsOpen(true)} />
+      <div className={s.admin_panel_categories}>
+        <div className={s.page_title}>
+          <Typography tag="h2">Create a category</Typography>
+
+          <AddInfoButton title="Add category" onClick={() => setIsOpen(true)} />
         </div>
 
-        <ListCategories />
+        <ListCategories categories={categories} removeCategory={removeCategory} editCategory={editCategory} />
       </div>
     </>
   )
 }
 
-export default Dashboard
+export default Categories

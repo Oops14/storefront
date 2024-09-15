@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import style from '../Admin.module.scss'
+import s from '../Admin.module.scss'
 
 const dashboardMenu = [
   { title: 'Categories', path: 'categories' },
@@ -10,24 +10,19 @@ const dashboardMenu = [
 ]
 
 const AdminSidebarMenu = () => {
-  const [activeLink, setActiveLink] = useState(dashboardMenu[0].path)
+  const [activeLink, setActiveLink] = useState(dashboardMenu[0]?.path)
 
   const handleLinkClick = (path: string) => {
     setActiveLink(path)
   }
 
   return (
-    <ul className={style.admin_sidebar_menu}>
-      {dashboardMenu.map((item, index) => {
-        return (
-          <li
-            key={index}
-            className={activeLink === item.path ? style.active_menu : ''}
-            onClick={() => handleLinkClick(item.path)}>
-            <Link to={`${item.path}`}>{item.title}</Link>
-          </li>
-        )
-      })}
+    <ul className={s.admin_sidebar_menu}>
+      {dashboardMenu.map((i) => (
+        <li key={i.path} className={activeLink === i.path ? s.active_menu : ''} onClick={() => handleLinkClick(i.path)}>
+          <Link to={i.path}>{i.title}</Link>
+        </li>
+      ))}
     </ul>
   )
 }
