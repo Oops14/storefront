@@ -1,17 +1,4 @@
 {
-  "compilerOptions": {
-    "baseUrl": "./src",
-    "paths": {
-      "@modules/*": ["modules/*"],
-      "@shared/*": ["modules/common/shared/*"],
-      "@app/*": ["app/*"],
-      "@assets/*": ["assets/*"],
-      "@components/*": ["components/*"],
-      "@routes/*": ["routes/*"],
-      "@ui/*": ["ui/*"],
-      "@utils/*": ["utils/*"]
-    }
-  },
   "files": [],
   "references": [
     {

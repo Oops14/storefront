@@ -3,7 +3,7 @@ import { StrictMode } from 'react'
 
 import App from './App'
 
-import '../assets/styles/App.scss'
+import '@assets/styles/App.scss'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

@@ -1,11 +1,12 @@
 import { useState } from 'react'
 
-import AddInfoButton from '../../../../components/buttons/AddInfoButton'
-import AddCategoryPopup from '../../components/AddCategoryPopup'
-import ListCategories from '../../components/listCategories/ListCategories'
 import Typography from '@components/typography/Typography'
+import AddInfoButton from '@components/buttons/AddInfoButton.tsx'
 
-import useCategoriesStore from '../../../common/shared/categories/store/useCategoriesStore'
+import AddCategoryPopup from '@modules/admin/components/AddCategoryPopup.tsx'
+import ListCategories from '@modules/admin/components/listCategories/ListCategories.tsx'
+
+import useCategoriesStore from '@shared/categories/store/useCategoriesStore.ts'
 
 import s from './Categories.module.scss'
 

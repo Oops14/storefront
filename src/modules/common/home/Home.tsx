@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
 import Grid from '@mui/material/Grid2'
 
-import DashboardTopPanel from '@modules/admin/components/AdminTopPanel'
+import Container from '@components/container/Container.tsx'
 
+import DashboardTopPanel from '@modules/admin/components/AdminTopPanel'
 import ProductGridItem from '@modules/products/ProductGridItem'
 
 import CategoryGridItem from '@shared/categories/CategoryGridItem'
@@ -40,7 +41,6 @@ const products = [
     price: '125',
   },
 ]
-
 const posts = [
   {
     id: uuidv4(),
@@ -79,7 +79,7 @@ const Home = () => {
       <Header />
 
       <section className={s.categories}>
-        <div className={s.container}>
+        <Container>
           <div className={s.section_title}>
             <h3>Product Categories</h3>
           </div>
@@ -93,11 +93,11 @@ const Home = () => {
               )
             })}
           </Grid>
-        </div>
+        </Container>
       </section>
 
       <section className={s.products_section}>
-        <div className={s.container}>
+        <Container>
           <div className={s.section_title}>
             <h3>Products</h3>
           </div>
@@ -111,11 +111,11 @@ const Home = () => {
               )
             })}
           </Grid>
-        </div>
+        </Container>
       </section>
 
       <section className={s.posts_section}>
-        <div className={s.container}>
+        <Container>
           <div className={s.section_title}>
             <h3>Posts</h3>
           </div>
@@ -129,7 +129,7 @@ const Home = () => {
               )
             })}
           </Grid>
-        </div>
+        </Container>
       </section>
     </>
   )

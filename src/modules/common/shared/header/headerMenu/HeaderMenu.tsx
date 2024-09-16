@@ -1,6 +1,12 @@
+import { Link } from 'react-router-dom'
+
 import s from '../Header.module.scss'
 
-const headerMenu = [{ title: 'Home' }, { title: 'Blog' }, { title: 'Shop' }]
+const headerMenu = [
+  { title: 'Home', path: '/' },
+  { title: 'Blog', path: '/blog' },
+  { title: 'Shop', path: '/shop' },
+]
 
 const HeaderMenu = () => {
   return (
@@ -8,9 +14,9 @@ const HeaderMenu = () => {
       {headerMenu.map((i, index) => {
         return (
           <li key={index} className={s.header_list_item}>
-            <a className={s.list_item_link} href="#">
+            <Link to={i.path} className={s.list_item_link}>
               {i.title}
-            </a>
+            </Link>
           </li>
         )
       })}
