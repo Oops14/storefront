@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
 import Grid from '@mui/material/Grid2'
 
-import Container from '@components/container/Container.tsx'
-
 import DashboardTopPanel from '@modules/admin/components/AdminTopPanel'
 import ProductGridItem from '@modules/products/ProductGridItem'
 
@@ -12,6 +10,7 @@ import CategoryGridItem from '@shared/categories/CategoryGridItem'
 import useCategoriesStore from '@shared/categories/store/useCategoriesStore'
 import Header from '@shared/header/Header'
 import Post from '@shared/posts/Post'
+import Container from '@shared/container/Container'
 
 import s from './Home.module.scss'
 
