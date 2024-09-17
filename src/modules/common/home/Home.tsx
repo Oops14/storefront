@@ -13,6 +13,7 @@ import Container from '@shared/container/Container'
 import Grid from '@shared/grid/Grid'
 
 import s from './Home.module.scss'
+import usePostsStore from '../shared/posts/store/usePostsStore'
 
 const products = [
   {
@@ -40,35 +41,10 @@ const products = [
     price: '125',
   },
 ]
-const posts = [
-  {
-    id: uuidv4(),
-    title: 'Flying Ninja',
-    description: 'This is a fantastic quality print and is happily hanging framed on my wall now.',
-    img: '../../../public/poster_2_up.webp',
-  },
-  {
-    id: uuidv4(),
-    title: 'Flying Ninja',
-    description: 'This is a fantastic quality print and is happily hanging framed on my wall now.',
-    img: '../../../public/poster_2_up.webp',
-  },
-  {
-    id: uuidv4(),
-    title: 'Flying Ninja',
-    description: 'This is a fantastic quality print and is happily hanging framed on my wall now.',
-    img: '../../../public/poster_2_up.webp',
-  },
-  {
-    id: uuidv4(),
-    title: 'Flying Ninja',
-    description: 'This is a fantastic quality print and is happily hanging framed on my wall now.',
-    img: '../../../public/poster_2_up.webp',
-  },
-]
 
 const Home = () => {
   const categories = useCategoriesStore((state) => state.categories)
+  const posts = usePostsStore((state) => state.posts)
 
   return (
     <>
