@@ -6,6 +6,7 @@ import Header from '@shared/header/Header.tsx'
 import Container from '@shared/container/Container'
 import PageTitle from '@shared/pageTitle/PageTitle'
 import Post from '@shared/posts/Post'
+import Grid from '@shared/grid/Grid'
 import usePostsStore from '@shared/posts/store/usePostsStore'
 
 import s from './Blog.module.scss'
@@ -24,11 +25,11 @@ const Blog = () => {
       <PageTitle>Blog</PageTitle>
 
       <Container>
-        <div className={s.posts_grid}>
+        <Grid>
           {posts.map((i) => {
             return <Post key={i.id} title={i.title} description={i.description} img={i.img} />
           })}
-        </div>
+        </Grid>
       </Container>
     </>
   )

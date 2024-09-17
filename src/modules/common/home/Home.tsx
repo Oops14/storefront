@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 
 import { v4 as uuidv4 } from 'uuid'
-import Grid from '@mui/material/Grid2'
 
 import DashboardTopPanel from '@modules/admin/components/AdminTopPanel'
 import ProductGridItem from '@modules/products/ProductGridItem'
@@ -11,6 +10,7 @@ import useCategoriesStore from '@shared/categories/store/useCategoriesStore'
 import Header from '@shared/header/Header'
 import Post from '@shared/posts/Post'
 import Container from '@shared/container/Container'
+import Grid from '@shared/grid/Grid'
 
 import s from './Home.module.scss'
 
@@ -83,14 +83,10 @@ const Home = () => {
             <h3>Product Categories</h3>
           </div>
 
-          <Grid container spacing={5}>
-            {categories.map((item, index) => {
-              return (
-                <Grid key={index} size={{ lg: 4, xs: 6, md: 6 }}>
-                  <CategoryGridItem title={item.title} img={item.img} quantity={item.quantity} />
-                </Grid>
-              )
-            })}
+          <Grid columns={3}>
+            {categories.map((item) => (
+              <CategoryGridItem key={item.id} title={item.title} img={item.img} quantity={item.quantity} />
+            ))}
           </Grid>
         </Container>
       </section>
@@ -101,14 +97,10 @@ const Home = () => {
             <h3>Products</h3>
           </div>
 
-          <Grid container spacing={5}>
-            {products.map((item, index) => {
-              return (
-                <Grid key={index} size={{ lg: 3, xs: 6, md: 6 }}>
-                  <ProductGridItem title={item.title} img={item.img} price={item.price} />
-                </Grid>
-              )
-            })}
+          <Grid>
+            {products.map((item) => (
+              <ProductGridItem key={item.id} title={item.title} img={item.img} price={item.price} />
+            ))}
           </Grid>
         </Container>
       </section>
@@ -119,14 +111,10 @@ const Home = () => {
             <h3>Posts</h3>
           </div>
 
-          <Grid container spacing={5}>
-            {posts.map((item, index) => {
-              return (
-                <Grid key={index} size={{ lg: 3, xs: 6, md: 6 }}>
-                  <Post title={item.title} description={item.description} img={item.img} />
-                </Grid>
-              )
-            })}
+          <Grid>
+            {posts.map((item) => (
+              <Post key={item.id} title={item.title} description={item.description} img={item.img} />
+            ))}
           </Grid>
         </Container>
       </section>
