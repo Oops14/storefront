@@ -2,18 +2,20 @@ import { Link } from 'react-router-dom'
 
 import { v4 as uuidv4 } from 'uuid'
 
+import Typography from '@components/typography/Typography'
+
 import DashboardTopPanel from '@modules/admin/components/AdminTopPanel'
-import ProductGridItem from '@modules/products/ProductGridItem'
+import ProductGridItems from '@modules/products/productGridItems/ProductGridItems'
 
 import CategoryGridItem from '@shared/categories/CategoryGridItem'
 import useCategoriesStore from '@shared/categories/store/useCategoriesStore'
 import Header from '@shared/header/Header'
-import Post from '@shared/posts/Post'
+import PostsGridItems from '@shared/posts/postsGridItems/PostsGridItems'
 import Container from '@shared/container/Container'
 import Grid from '@shared/grid/Grid'
+import usePostsStore from '@shared/posts/store/usePostsStore'
 
 import s from './Home.module.scss'
-import usePostsStore from '../shared/posts/store/usePostsStore'
 
 const products = [
   {
@@ -55,9 +57,9 @@ const Home = () => {
 
       <section className={s.categories}>
         <Container>
-          <div className={s.section_title}>
-            <h3>Product Categories</h3>
-          </div>
+          <Typography tag="h3" className={s.section_title}>
+            Product Categories
+          </Typography>
 
           <Grid columns={3}>
             {categories.map((item) => (
@@ -69,28 +71,24 @@ const Home = () => {
 
       <section className={s.products_section}>
         <Container>
-          <div className={s.section_title}>
-            <h3>Products</h3>
-          </div>
+          <Typography tag="h3" className={s.section_title}>
+            Products
+          </Typography>
 
           <Grid>
-            {products.map((item) => (
-              <ProductGridItem key={item.id} title={item.title} img={item.img} price={item.price} />
-            ))}
+            <ProductGridItems products={products} />
           </Grid>
         </Container>
       </section>
 
       <section className={s.posts_section}>
         <Container>
-          <div className={s.section_title}>
-            <h3>Posts</h3>
-          </div>
+          <Typography tag="h3" className={s.section_title}>
+            Posts
+          </Typography>
 
           <Grid>
-            {posts.map((item) => (
-              <Post key={item.id} title={item.title} description={item.description} img={item.img} />
-            ))}
+            <PostsGridItems posts={posts} />
           </Grid>
         </Container>
       </section>

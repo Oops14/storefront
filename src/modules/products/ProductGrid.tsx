@@ -2,15 +2,15 @@ import { FC } from 'react'
 
 import Button from '@ui/button/Button'
 
-import s from './ProductGridItems.module.scss'
+import s from './ProductGrid.module.scss'
 
-interface ProductGridItem {
+export interface ProductGrid {
   title: string
   img: string
   price: string
 }
 
-const ProductGridItem: FC<ProductGridItem> = ({ title, img, price }) => {
+const ProductGrid: FC<ProductGrid> = ({ title, img, price }) => {
   return (
     <div className={s.product_grid_item}>
       <div className={s.product_top}>
@@ -31,4 +31,4 @@ const ProductGridItem: FC<ProductGridItem> = ({ title, img, price }) => {
   )
 }
 
-export default ProductGridItem
+export default ProductGrid
