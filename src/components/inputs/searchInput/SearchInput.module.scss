@@ -1,0 +1,23 @@
+.search_input {
+  outline: none;
+  padding: 5px 25px 5px 8px;
+
+  border: 1px solid #2c2d34;
+  border-radius: 2px;
+}
+
+.search_input_element {
+  position: relative;
+  max-width: 200px;
+}
+
+.input_icon {
+  position: absolute;
+  top: 15%;
+  right: 3px;
+}
+
+.icon_item {
+  width: 20px;
+  height: 20px;
+}

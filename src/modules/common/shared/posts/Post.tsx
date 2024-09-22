@@ -1,6 +1,8 @@
 import { FC } from 'react'
-import Button from '../../../../ui/Button'
-import style from './Post.module.scss'
+
+import Button from '@ui/button/Button'
+
+import s from './Post.module.scss'
 
 interface Post {
   title: string
@@ -10,18 +12,18 @@ interface Post {
 
 const Post: FC<Post> = ({ title, description, img }) => {
   return (
-    <div className={style.post_item}>
-      <div className={style.post_top}>
+    <div className={s.post_item}>
+      <div className={s.post_top}>
         <a href="#">
           <img src={img} alt="#" />
         </a>
       </div>
-      <div className={style.post_bottom}>
-        <div className={style.post_title}>
+      <div className={s.post_bottom}>
+        <div className={s.post_title}>
           <a href="#">{title}</a>
         </div>
-        <div className={style.post_desk}>{description}</div>
-        <Button className={`btn ${style.btn_alternative}`}>View this post →</Button>
+        <div className={s.post_desk}>{description}</div>
+        <Button className={`btn ${s.btn_alternative}`}>View this post →</Button>
       </div>
     </div>
   )

@@ -1,82 +1,35 @@
-import { Button } from '@mui/material'
 import { useState } from 'react'
-import { v4 as uuidv4 } from 'uuid'
-import AddInfoButton from '../../../../components/AddInfoButton'
-import ImageInput from '../../../../components/ImageInput'
-import useCategoriesStore from '../../../common/shared/categories/store/useCategoriesStore'
-import Popup from '../../../common/shared/popup/Popup'
-import style from './Categories.module.scss'
 
-const Dashboard = () => {
+import Typography from '@components/typography/Typography'
+import AddInfoButton from '@components/buttons/AddInfoButton.tsx'
+
+import AddCategoryPopup from '@modules/admin/components/AddCategoryPopup.tsx'
+import ListCategories from '@modules/admin/components/listCategories/ListCategories.tsx'
+
+import useCategoriesStore from '@shared/categories/store/useCategoriesStore.ts'
+
+import s from './Categories.module.scss'
+
+const Categories = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const [selectedImage, setSelectedImage] = useState<string | null>(null)
-  const [categoryTitle, setCategoryTitle] = useState('')
 
   const categories = useCategoriesStore((state) => state.categories)
-  const addNewCategory = useCategoriesStore((state) => state.addCategory)
-
-  const handleImageChange = (imageFile: File | null) => {
-    if (imageFile) {
-      const reader = new FileReader()
-      reader.onloadend = () => {
-        setSelectedImage(reader.result as string)
-      }
-      reader.readAsDataURL(imageFile)
-    } else {
-      setSelectedImage(null)
-    }
-  }
-
-  const handlePopup = () => {
-    setIsOpen(true)
-  }
-
-  const handleData = () => {
-    const categoryItem = {
-      id: uuidv4(),
-      title: categoryTitle,
-      img: selectedImage || '',
-      quantity: 0,
-    }
-
-    if (categoryTitle.length && selectedImage) {
-      addNewCategory(categoryItem)
-      setIsOpen(false)
-    }
-  }
+  const { removeCategory, editCategory } = useCategoriesStore()
 
   return (
     <>
-      {isOpen && (
-        <Popup setIsOpen={setIsOpen}>
-          {/* Custom content passed as children */}
-          <h5>Define a category title</h5>
-          <input type="text" onChange={(e) => setCategoryTitle(e.currentTarget.value)} />
+      {isOpen && <AddCategoryPopup setIsOpen={setIsOpen} />}
+      <div className={s.admin_panel_categories}>
+        <div className={s.page_title}>
+          <Typography tag="h2">Create a category</Typography>
 
-          <h5>Upload an Image</h5>
-          <ImageInput classNameDivInput="some-class" onImageChange={handleImageChange} />
-
-          {selectedImage && <p>Image file selected</p>}
-
-          <Button className="btn" onClick={handleData}>
-            Add category
-          </Button>
-        </Popup>
-      )}
-      <div className={style.admin_panel_categories}>
-        <div className={style.page_title}>
-          <h2>Create a category</h2>
-          <AddInfoButton title="Add product" onClick={handlePopup} />
+          <AddInfoButton title="Add category" onClick={() => setIsOpen(true)} />
         </div>
 
-        <ul>
-          {categories.map((i) => {
-            return <li key={i.id}>{i.title}</li>
-          })}
-        </ul>
+        <ListCategories categories={categories} removeCategory={removeCategory} editCategory={editCategory} />
       </div>
     </>
   )
 }
 
-export default Dashboard
+export default Categories

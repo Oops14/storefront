@@ -18,7 +18,19 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "baseUrl": "./src",
+    "paths": {
+      "@modules/*": ["modules/*"],
+      "@shared/*": ["modules/common/shared/*"],
+      "@app/*": ["app/*"],
+      "@assets/*": ["assets/*"],
+      "@components/*": ["components/*"],
+      "@routes/*": ["routes/*"],
+      "@ui/*": ["ui/*"],
+      "@utils/*": ["utils/*"]
+    }
   },
   "include": ["src"]
 }

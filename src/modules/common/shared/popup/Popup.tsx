@@ -1,5 +1,6 @@
 import { FC, ReactNode } from 'react'
-import style from './Popup.module.scss'
+
+import s from './Popup.module.scss'
 
 interface PopupProps {
   setIsOpen?: (isOpen: boolean) => void
@@ -18,9 +19,9 @@ const Popup: FC<PopupProps> = ({ setIsOpen, children }) => {
 
   return (
     <>
-      <div data-popup="background" className={style.popup_bg} onClick={handleClick}></div>
-      <div className={style.popup}>
-        <div className="container">{children}</div>
+      <div data-popup="background" className={s.popup_bg} onClick={handleClick}></div>
+      <div className={s.popup}>
+        <div className={s.container}>{children}</div>
       </div>
     </>
   )

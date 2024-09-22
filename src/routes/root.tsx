@@ -1,9 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom'
-import AdminPanel from '../modules/admin/AdminPanel'
-import Categories from '../modules/admin/pages/categories/Categories'
-import Posts from '../modules/admin/pages/posts/Posts'
-import Products from '../modules/admin/pages/products/Products'
-import Home from '../modules/common/home/Home'
+
+import Admin from '@modules/admin/Admin'
+import Categories from '@modules/admin/pages/categories/Categories'
+import Posts from '@modules/admin/pages/posts/Posts'
+import Products from '@modules/admin/pages/products/Products'
+import Home from '@modules/common/home/Home'
+import Blog from '@modules/common/blog/Blog.tsx'
+import Shop from '@modules/common/shop/Shop'
 
 const router = createBrowserRouter([
   {
@@ -11,8 +14,16 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
+    path: '/blog',
+    element: <Blog />,
+  },
+  {
+    path: '/shop',
+    element: <Shop />,
+  },
+  {
     path: '/admin',
-    element: <AdminPanel />,
+    element: <Admin />,
     children: [
       {
         path: 'categories',
